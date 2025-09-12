@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub,  } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import ecommerceImage from '@/assets/sabucha-ecommerce-project.jpg';
@@ -195,7 +195,7 @@ const Projects = () => {
                       View Code
                     </Button>
                   )}
-                  {project.liveUrl && (
+                  {/* {project.liveUrl && (
                     <Button
                       className="bg-primary hover:bg-primary/90"
                       onClick={() => window.open(project.liveUrl, '_blank')}
@@ -203,7 +203,7 @@ const Projects = () => {
                       <FaExternalLinkAlt className="mr-2" size={16} />
                       Live Demo
                     </Button>
-                  )}
+                  )} */}
                 </div>
               </motion.div>
             </motion.div>
