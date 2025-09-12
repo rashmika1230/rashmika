@@ -7,8 +7,8 @@ const About = () => {
     // This would typically download the actual CV file
     // For now, we'll create a placeholder action
     const link = document.createElement('a');
-    link.href = '/my_cv.pdf'; // This file would need to be placed in the public folder
-    link.download = 'Rashmika_Lakshan_CV.pdf';
+    link.href = './my_cv.pdf'; // This file would need to be placed in the public folder
+    link.download = 'Rashmika_Lakshan.pdf';
     link.click();
   };
   
