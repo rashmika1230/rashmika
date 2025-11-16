@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaGithub,  } from 'react-icons/fa';
+import { FaGithub, } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import ecommerceImage from '@/assets/sabucha-ecommerce-project.jpg';
 import bakeryManagementImage from '@/assets/bakery-project.jpg';
 import posImage from '@/assets/pos-project.jpg';
 import movieImage from '@/assets/movie-project.jpg';
+import chatAppImage from '@/assets/chatApp.jpg';
 
 interface Project {
   id: number;
@@ -21,11 +22,12 @@ interface Project {
 }
 
 const Projects = () => {
-  // Mock project data - in a real implementation, this would come from your actual projects
-  const projects: Project[] = [
+  // Mock project data - ADD NEW PROJECTS TO THE END WITH A HIGHER ID.
+  const allProjects: Project[] = [
+    // --- E-COMMERCE PROJECT MOVED TO ID 5 (Second Newest) ---
     {
-      id: 1,
-      title: 'E-Commerce Full Stack Application',
+      id: 5, // ID set to 5, making it the second project when sorted descending from ID 6
+      title: 'E-Commerce Full Stack Application (Sabucha)',
       description: 'A comprehensive e-commerce platform with user authentication, product management, and payment integration.',
       fullDescription: 'Built a complete e-commerce solution featuring user registration/login, product catalog, shopping cart, order management, and secure payment processing.',
       image: ecommerceImage,
@@ -36,7 +38,7 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 2,
+      id: 3,
       title: 'Bakery Management System',
       description: 'Bakery Management System for a real-world client',
       fullDescription: 'Developed a real-world bakery management System for a client, enabling seamless interaction with their bakery operations and multiple shop locations. The system streamlines inventory, sales, orders, and return management while improving efficiency.',
@@ -47,7 +49,7 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 3,
+      id: 4,
       title: 'POS System',
       description: 'POS system for a real-world furniture shop client',
       fullDescription: 'Developed a POS system for a real-world furniture shop client, featuring standard POS functionalities with a dedicated module for creating fully customized invoices, enhancing flexibility and operational efficiency.',
@@ -59,7 +61,7 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 4,
+      id: 1, // ID adjusted to be oldest
       title: 'Movies Review Application',
       description: 'Movie Review web application',
       fullDescription: 'Developed a movie review platform that allows users to browse, rate, and review movies with a clean, modern UI and dynamic content updates.',
@@ -68,15 +70,30 @@ const Projects = () => {
       challenge: 'Ensuring secure user authentication and implementing a scalable rating system that updates overall scores in real time.',
       githubUrl: 'https://github.com/rashmika1230/movie-review',
       featured: false
-    }
+    },
+    // --- Project 1: Chat Application (NEWEST - Highest ID) ---
+    {
+      id: 6, // NEWEST PROJECT (Highest ID)
+      title: 'Real-Time Chat Application',
+      description: 'A cross-platform mobile chat application with secure authentication and instant messaging features.',
+      fullDescription: 'Developed a secure, real-time chat application for mobile, using React Native and Tailwind CSS for a modern UI/UX. The backend utilizes Java EE with Hibernate for efficient data persistence and handling concurrent connections.',
+      image: chatAppImage,
+      technologies: ['React Native', 'Tailwind CSS', 'Java EE', 'Hibernate', 'MySQL', 'JWT'],
+      challenge: 'Implementing secure WebSocket connections for real-time messaging and ensuring high performance under heavy concurrent user load.',
+      githubUrl: 'https://github.com/rashmika1230/MyChatApp',
+      featured: true
+    },
   ];
 
   const getTechnologyColor = (tech: string): string => {
     const colors: { [key: string]: string } = {
       'React': 'bg-blue-500/20 text-blue-400 border-blue-400/30',
+      'React Native': 'bg-blue-600/20 text-blue-300 border-blue-300/30', 
+      'Tailwind CSS': 'bg-teal-500/20 text-teal-400 border-teal-400/30', 
       'HTML': 'bg-blue-500/20 text-blue-400 border-blue-400/30',
       'TypeScript': 'bg-blue-600/20 text-blue-300 border-blue-300/30',
       'Spring Boot': 'bg-green-500/20 text-green-400 border-green-400/30',
+      'Java EE': 'bg-orange-600/20 text-orange-300 border-orange-300/30', 
       'MySQL': 'bg-orange-500/20 text-orange-400 border-orange-400/30',
       'Java': 'bg-green-600/20 text-green-300 border-green-300/30',
       'Node.js': 'bg-green-500/20 text-green-400 border-green-400/30',
@@ -91,6 +108,9 @@ const Projects = () => {
     };
     return colors[tech] || 'bg-primary/20 text-primary border-primary/30';
   };
+  
+  // Sort projects by ID in descending order (highest ID/newest project first)
+  const sortedProjects = [...allProjects].sort((a, b) => b.id - a.id);
 
   return (
     <section id="projects" className="py-20 px-4">
@@ -115,14 +135,25 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-16">
-          {projects.map((project, index) => (
+        {/* --- SCROLLABLE CONTAINER --- */}
+        <div 
+            className="space-y-16 max-h-[800px] overflow-y-auto pr-4 custom-scrollbar"
+            style={{ 
+                // Optional: Customize scrollbar appearance for some browsers
+                scrollbarWidth: 'thin', 
+                scrollbarColor: '#4f46e5 #1e1e2d' 
+            }}
+        >
+          {/* Mapping over sortedProjects ensures newest project is at the top (index 0) */}
+          {sortedProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              // The alternating layout logic (index % 2 === 1) now works correctly
+              // for the newest-first order.
               className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''
                 }`}
             >
@@ -147,8 +178,8 @@ const Projects = () => {
                 className={`space-y-6 ${index % 2 === 1 ? 'md:col-start-1' : ''}`}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
@@ -195,22 +226,16 @@ const Projects = () => {
                       View Code
                     </Button>
                   )}
-                  {/* {project.liveUrl && (
-                    <Button
-                      className="bg-primary hover:bg-primary/90"
-                      onClick={() => window.open(project.liveUrl, '_blank')}
-                    >
-                      <FaExternalLinkAlt className="mr-2" size={16} />
-                      Live Demo
-                    </Button>
-                  )} */}
+                  {/* Live URL button removed as it was commented out */}
                 </div>
               </motion.div>
             </motion.div>
           ))}
         </div>
+        {/* --- END OF SCROLLABLE CONTAINER --- */}
 
-        {/* View More Projects CTA */}
+
+        {/* View More Projects CTA (now below the scrollable area) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
