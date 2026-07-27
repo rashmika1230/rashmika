@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { FaReact, FaJava, FaPython, FaPhp } from 'react-icons/fa';
-import { SiTypescript, SiSpringboot, SiMysql, SiMongodb } from 'react-icons/si';
+import { FaReact, FaJava, FaAws, FaLinux } from 'react-icons/fa';
+import { SiTypescript, SiSpringboot, SiDocker, SiJenkins, SiTerraform, SiAnsible, SiKubernetes } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import heroImage from '@/assets/my-photo.jpg';
 
@@ -10,7 +10,7 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   
-  const phrases = ['A Fullstack Developer', 'I build things for the web.'];
+  const phrases = ['Backend Java Developer', 'DevOps Enthusiast', 'I build & automate software delivery.'];
   
   // Typing animation effect
   useEffect(() => {
@@ -38,11 +38,14 @@ const Hero = () => {
       'React': 'text-cyan-400',
       'TypeScript': 'text-blue-600',
       'Java': 'text-orange-600',
-      'Python': 'text-blue-600',
       'Spring Boot': 'text-green-600',
-      'PHP': 'text-purple-600',
-      'MySQL': 'text-blue-700',
-      'MongoDB': 'text-green-600',
+      'Docker': 'text-blue-500',
+      'AWS': 'text-orange-400',
+      'Jenkins': 'text-red-500',
+      'Linux': 'text-yellow-500',
+      'Terraform': 'text-purple-600',
+      'Ansible': 'text-red-600',
+      'Kubernetes': 'text-blue-600',
     };
     return colorClasses[techName] || 'text-primary';
   };
@@ -51,11 +54,14 @@ const Hero = () => {
     { icon: FaReact, name: 'React', color: '#61DAFB' },
     { icon: SiTypescript, name: 'TypeScript', color: '#3178C6' },
     { icon: FaJava, name: 'Java', color: '#ED8B00' },
-    { icon: FaPython, name: 'Python', color: '#3776AB' },
     { icon: SiSpringboot, name: 'Spring Boot', color: '#6DB33F' },
-    { icon: FaPhp, name: 'PHP', color: '#777BB4' },
-    { icon: SiMysql, name: 'MySQL', color: '#4479A1' },
-    { icon: SiMongodb, name: 'MongoDB', color: '#47A248' },
+    { icon: SiDocker, name: 'Docker', color: '#2496ED' },
+    { icon: FaAws, name: 'AWS', color: '#FF9900' },
+    { icon: SiJenkins, name: 'Jenkins', color: '#D24939' },
+    { icon: FaLinux, name: 'Linux', color: '#FCC624' },
+    { icon: SiTerraform, name: 'Terraform', color: '#7B42BC' },
+    { icon: SiAnsible, name: 'Ansible', color: '#EE0000' },
+    { icon: SiKubernetes, name: 'Kubernetes', color: '#326CE5' },
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -101,8 +107,8 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="text-lg text-muted-foreground leading-relaxed max-w-lg"
             >
-              Undergraduate Software Engineer passionate about crafting efficient and user-friendly 
-              full-stack applications. Turning coffee into code, one project at a time.
+              Final-year Software Engineering undergraduate passionate about backend Java development
+              and DevOps engineering. Turning coffee into code — and automating the pipeline that ships it.
             </motion.p>
 
             <motion.div
@@ -169,7 +175,7 @@ const Hero = () => {
                       repeat: Infinity,
                       type: "tween",
                       ease: "linear",
-                      delay: (index * 2.5),
+                      delay: (index * (20 / techIcons.length)),
                     }}
                   >
                     <motion.div
@@ -185,7 +191,7 @@ const Hero = () => {
                         repeat: Infinity,
                         type: "tween",
                         ease: "linear",
-                        delay: (index * 2.5),
+                        delay: (index * (20 / techIcons.length)),
                       }}
                       whileHover={{ scale: 1.2 }}
                     >
