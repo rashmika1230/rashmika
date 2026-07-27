@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { 
-  FaReact, FaJava, FaPython, FaPhp, FaGitAlt, FaNodeJs, FaHtml5, FaCss3Alt, FaJs 
+import {
+  FaReact, FaJava, FaPython, FaPhp, FaGitAlt, FaHtml5, FaCss3Alt, FaJs, FaAws, FaLinux
 } from 'react-icons/fa';
-import { 
-  SiTypescript, SiSpringboot, SiMysql, SiMongodb, SiTailwindcss, SiPostman, SiLaravel 
+import {
+  SiTypescript, SiSpringboot, SiMysql, SiMongodb, SiTailwindcss, SiPostman, SiLaravel,
+  SiDocker, SiKubernetes, SiJenkins, SiGitlab, SiTerraform, SiAnsible, SiGnubash
 } from 'react-icons/si';
 
 interface Skill {
@@ -29,13 +30,21 @@ const Skills = () => {
       'Java': 'text-orange-600',
       'Python': 'text-blue-600',
       'PHP': 'text-purple-600',
-      'Node.js': 'text-green-500',
       'Spring Boot': 'text-green-600',
       'Laravel': 'text-red-500',
       'MySQL': 'text-blue-700',
       'MongoDB': 'text-green-600',
       'Git': 'text-orange-500',
       'Postman': 'text-orange-600',
+      'AWS': 'text-orange-400',
+      'Docker': 'text-blue-500',
+      'Kubernetes': 'text-blue-600',
+      'Jenkins': 'text-red-500',
+      'GitLab CI/CD': 'text-orange-500',
+      'Terraform': 'text-purple-600',
+      'Ansible': 'text-red-600',
+      'Linux': 'text-yellow-500',
+      'Bash/Shell': 'text-gray-400',
     };
     return colorClasses[skillName] || 'text-primary';
   };
@@ -58,9 +67,21 @@ const Skills = () => {
         { name: 'Java', icon: FaJava, color: '#ED8B00' },
         { name: 'Python', icon: FaPython, color: '#3776AB' },
         { name: 'PHP', icon: FaPhp, color: '#777BB4' },
-        { name: 'Node.js', icon: FaNodeJs, color: '#339933' },
         { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
         { name: 'Laravel', icon: SiLaravel, color: '#FF2D20' },
+      ]
+    },
+    {
+      title: 'DevOps & Cloud',
+      skills: [
+        { name: 'AWS', icon: FaAws, color: '#FF9900' },
+        { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+        { name: 'Kubernetes', icon: SiKubernetes, color: '#326CE5' },
+        { name: 'Jenkins', icon: SiJenkins, color: '#D24939' },
+        { name: 'GitLab CI/CD', icon: SiGitlab, color: '#FC6D26' },
+        { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
+        { name: 'Ansible', icon: SiAnsible, color: '#EE0000' },
+        { name: 'Linux', icon: FaLinux, color: '#FCC624' },
       ]
     },
     {
@@ -75,6 +96,7 @@ const Skills = () => {
       skills: [
         { name: 'Git', icon: FaGitAlt, color: '#F05032' },
         { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+        { name: 'Bash/Shell', icon: SiGnubash, color: '#4EAA25' },
       ]
     }
   ];
