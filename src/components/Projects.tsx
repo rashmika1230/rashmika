@@ -24,29 +24,6 @@ interface Project {
 const Projects = () => {
   // Mock project data - ADD NEW PROJECTS TO THE END WITH A HIGHER ID.
   const allProjects: Project[] = [
-    // --- NEWEST PROJECTS (Highest IDs) ---
-    {
-      id: 8, // TODO: replace placeholder image with an actual TechMart Online screenshot
-      title: 'TechMart Online — Enterprise E-Commerce (Jakarta EE)',
-      description: 'Multi-module Maven EAR e-commerce application built with Jakarta EE on Payara Server 6.',
-      fullDescription: 'Built a multi-module Maven EAR e-commerce application on Jakarta EE, deployed on Payara Server 6, with MySQL and EclipseLink JPA for persistence, EJBs for business logic, and JMS for asynchronous messaging. Verified correctness with Arquillian integration tests and load-tested the application with JMeter.',
-      image: ecommerceImage, // TODO: replace with a real TechMart screenshot
-      technologies: ['Jakarta EE', 'Java', 'Payara', 'MySQL', 'JMS', 'Arquillian'],
-      challenge: 'Structuring a multi-module EAR with clean EJB boundaries and validating reliability under load with JMeter and Arquillian integration tests.',
-      githubUrl: 'https://github.com/rashmika1230', // TODO: replace with the actual TechMart Online repo URL
-      featured: true
-    },
-    {
-      id: 7, // TODO: replace placeholder image with an actual project screenshot
-      title: 'Spring Boot JWT Authentication API',
-      description: 'Secure REST API with Spring Security, JWT, BCrypt password hashing, and MySQL.',
-      fullDescription: 'Developed a secure REST API using Spring Boot and Spring Security, implementing stateless JWT authentication (JJWT), BCrypt password hashing, and role-based access control backed by MySQL.',
-      image: posImage, // TODO: replace with a real screenshot of this project
-      technologies: ['Spring Boot', 'Spring Security', 'JWT', 'MySQL'],
-      challenge: 'Implementing stateless, role-based authentication with JWT while keeping password storage secure via BCrypt hashing.',
-      githubUrl: 'https://github.com/rashmika1230', // TODO: replace with the actual repo URL
-      featured: true
-    },
     // --- E-COMMERCE PROJECT MOVED TO ID 5 (Second Newest) ---
     {
       id: 5, // ID set to 5, making it the second project when sorted descending from ID 6
@@ -128,11 +105,6 @@ const Projects = () => {
       'Bootstrap': 'bg-purple-500/20 text-purple-400 border-purple-400/30',
       'jQuery': 'bg-blue-400/20 text-blue-300 border-blue-300/30',
       'Fetch API': 'bg-indigo-500/20 text-indigo-400 border-indigo-400/30',
-      'Jakarta EE': 'bg-orange-600/20 text-orange-300 border-orange-300/30',
-      'Payara': 'bg-teal-600/20 text-teal-300 border-teal-300/30',
-      'JMS': 'bg-amber-500/20 text-amber-400 border-amber-400/30',
-      'Arquillian': 'bg-cyan-600/20 text-cyan-300 border-cyan-300/30',
-      'Spring Security': 'bg-green-600/20 text-green-300 border-green-300/30',
     };
     return colors[tech] || 'bg-primary/20 text-primary border-primary/30';
   };
