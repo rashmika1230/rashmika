@@ -64,23 +64,24 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm an undergraduate Software Engineer with a passion for creating efficient, 
-                user-friendly applications that solve real-world problems. My journey in technology 
-                has been driven by curiosity and a constant desire to learn and adapt to new challenges.
-              </p>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                With experience spanning both frontend and backend development, I enjoy working with 
-                modern technologies like React, Spring Boot, and various databases to build comprehensive 
-                solutions. I believe in writing clean, maintainable code and following best practices 
-                in software development.
+                I'm a final-year BSc (Hons) Software Engineering undergraduate specializing in backend
+                development with Java, Spring Boot, and Jakarta EE. I focus on building enterprise-grade
+                applications with a strong emphasis on clean architecture, reliability, and maintainability.
               </p>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Beyond technical skills, I've developed strong leadership and communication abilities 
-                through remote team collaboration and project management experience. I thrive in 
-                collaborative environments and enjoy mentoring others while continuously expanding 
-                my own knowledge.
+                I'm actively building my DevOps engineering skills — designing CI/CD pipelines with
+                Jenkins and GitLab CI/CD, containerizing applications with Docker, and managing
+                infrastructure as code with Terraform and Ansible on AWS (EC2, ECR, ECS). I also have
+                hands-on Linux administration experience, including storage management (LVM), shell
+                scripting, and SSH.
+              </p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Beyond technical skills, I've developed strong leadership and communication abilities
+                through remote team collaboration and project management experience. I thrive in
+                collaborative environments and enjoy converting what I learn into hands-on labs and
+                real deployments, while continuously expanding my own knowledge.
               </p>
 
               <motion.div
